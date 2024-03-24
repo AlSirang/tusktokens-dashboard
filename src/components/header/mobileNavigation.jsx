@@ -1,6 +1,7 @@
 import React from "react";
 import { FaXmark } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { ConnectButton } from "../connectButton";
 
 export const MobileNavigation = React.forwardRef(
   ({ links = [], onToggle = () => null }, ref) => {
@@ -32,8 +33,9 @@ export const MobileNavigation = React.forwardRef(
 
           <div className="flex flex-col mt-5 gap-3">
             <div className="flex flex-col gap-3" onClick={onToggle}>
-              {/* <WalletConnect className="button-base secondary-button connect-wallet" /> */}
               {/* <DisconnectWallet /> */}
+
+              <ConnectButton />
             </div>
             {/* <BuyNowButton /> */}
           </div>

@@ -45,7 +45,7 @@ const Header = () => {
 
       <MobileNavigation ref={sideMenuRef} links={links} onToggle={onToggle} />
 
-      <header className="py-5 lg:py-14">
+      <header className="py-5 lg:py-14 max-w-screen-2xl mx-auto">
         <div className="flex items-center lg:justify-end justify-between px-5">
           <div className="block lg:hidden font-semibold text-4xl">
             <LogoImage className="h-28 w-28" />
