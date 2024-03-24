@@ -4,6 +4,7 @@ import { Button } from "../components/button";
 import { MainLayout } from "../layouts/main.layout";
 
 import logo from "@/src/assets/TUSK-logo.png";
+
 export default function Home() {
   const navigate = useNavigate();
 

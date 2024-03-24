@@ -1,4 +1,5 @@
 import { ConnectButton } from "./connectButton";
+import { DisconnectButton } from "./disconnectButton";
 import { LogoImage } from "./logoImage";
 
 export default function Sidebar() {
@@ -10,8 +11,9 @@ export default function Sidebar() {
             <LogoImage className="max-w-40" />
           </div>
 
-          <div className="mt-52 w-full flex items-center justify-center">
+          <div className="mt-52 w-full flex flex-col gap-5 items-center justify-center">
             <ConnectButton />
+            <DisconnectButton />
           </div>
         </div>
       </div>

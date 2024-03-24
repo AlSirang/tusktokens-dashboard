@@ -35,8 +35,8 @@ export const ConnectButton = () => {
       {isCorrectChain && (
         <Button
           type="button"
-          onClick={() => open()}
-          className="w-full py-1.5 px-4 h-auto text-lg font-semibold"
+          onClick={() => !isConnected && open()}
+          className="w-full py-1.5 px-4 h-auto text-lg font-semibold rounded-full"
         >
           {shortenAddress(address) || (
             <span className="capitalize">Connect Wallet</span>
@@ -48,7 +48,7 @@ export const ConnectButton = () => {
         <Button
           type="button"
           onClick={onChainChanged}
-          className="w-full text-sm bg-red-600 text-white"
+          className="w-full text-sm bg-red-600 text-white rounded-full"
         >
           <span className="capitalize">Wrong Network</span>
         </Button>
