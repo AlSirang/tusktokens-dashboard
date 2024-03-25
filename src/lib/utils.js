@@ -21,3 +21,8 @@ export const switchNetwork = async (provider, configs) => {
       });
   }
 };
+
+export const getPlural = (number, word) => {
+  // eslint-disable-next-line eqeqeq
+  return number == 1 ? word : word + "s";
+};

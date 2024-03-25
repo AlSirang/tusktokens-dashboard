@@ -1,19 +1,7 @@
-import VAULT_ABI from "@/src/assets/abis/canaryVault.json";
-import ERC721_ABI from "@/src/assets/abis/IERC721.json";
 import ERC20_ABI from "@/src/assets/abis/ERC20.json";
+import VESTING_ABI from "@/src/assets/abis/vestingABI.json";
 
-const VAULT_ADDRESS = "0xb1837326A20B6233cedf1361Bcf80D3453E33e42";
-const ERC721_ADDRESS = "0x9f5DC5aC690DF71C8e3C859c483BCea4E506e771";
+const VESTING_ADDRESS = "0xcac70e96865ecb2a96dc2fc41f6a457e96cf40df";
+const ERC20_ADDRESS = "0x5aecCb66a800e94E78f054e6258Ff7AfAe8b7957";
 
-const ERC20_ADDRESS = "0x767b25A658E8FC8ab6eBbd52043495dB61b4ea91";
-const ERC20_SYMBOL = "WCFLR";
-
-export {
-  ERC20_ABI,
-  ERC20_ADDRESS,
-  ERC20_SYMBOL,
-  ERC721_ADDRESS,
-  ERC721_ABI,
-  VAULT_ADDRESS,
-  VAULT_ABI,
-};
+export { ERC20_ABI, VESTING_ABI, ERC20_ADDRESS, VESTING_ADDRESS };

@@ -18,8 +18,8 @@ export default function Home() {
     navigate("/dashboard");
   };
   return (
-    <MainLayout className="flex items-center lg:-mt-32">
-      <section className="grid grid-cols-12 gap-10 h-full">
+    <MainLayout className="flex items-center py-10 lg:py-0">
+      <section className="flex flex-col lg:grid grid-cols-12 gap-10 h-full px-10">
         <div className="col-span-12 lg:col-span-6">
           <div className="text-4xl md:text-5xl lg:text-6xl font-bold">
             <h2 className="text-white">Introducing</h2>
@@ -36,17 +36,17 @@ export default function Home() {
             and P2P lending to build powerful tools for the finance industry.
           </p>
 
-          <div className="flex items-center gap-5 mt-10">
+          <div className="flex items-center gap-5 mt-10 flex-wrap">
             <Button
               onClick={handleBuyNow}
-              className="rounded-full flex items-center gap-2 max-w-60"
+              className="rounded-full flex items-center gap-2 lg:max-w-60"
             >
               <span className="text-lg font-semibold">Buy Now</span>
               <FaArrowRight />
             </Button>
             <Button
               onClick={handleDashboard}
-              className="rounded-full flex items-center gap-2 max-w-72"
+              className="rounded-full flex items-center gap-2 lg:max-w-72"
               variant="secondary"
             >
               <span className="text-lg font-semibold">Dashboard</span>

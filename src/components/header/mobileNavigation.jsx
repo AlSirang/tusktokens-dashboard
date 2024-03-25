@@ -1,11 +1,14 @@
 import React from "react";
 import { FaXmark } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ConnectButton } from "../connectButton";
 import { DisconnectButton } from "../disconnectButton";
+import { cn } from "@/src/lib/utils";
 
 export const MobileNavigation = React.forwardRef(
   ({ links = [], onToggle = () => null }, ref) => {
+    const { pathname } = useLocation();
+
     return (
       <div
         className="fixed right-[288px] top-0 w-72 h-full z-10 transition-all bg-dark-200"
@@ -24,7 +27,12 @@ export const MobileNavigation = React.forwardRef(
             {links.map(({ name, path }, idx) => (
               <Link
                 key={idx}
-                className="text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all"
+                className={cn(
+                  "text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all",
+                  {
+                    "text-yellow-200": pathname.endsWith(path),
+                  }
+                )}
                 to={path}
               >
                 {name}

@@ -1,10 +1,15 @@
 import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa6";
 import { MobileNavigation } from "./mobileNavigation";
 import { LogoImage } from "../logoImage";
+import { cn } from "@/src/lib/utils";
 
 const links = [
+  {
+    name: "Home",
+    path: "/",
+  },
   {
     name: "dashboard",
     path: "/dashboard",
@@ -29,6 +34,7 @@ const links = [
 ];
 
 const Header = () => {
+  const { pathname } = useLocation();
   const sideMenuRef = useRef(null);
 
   const onToggle = () => {
@@ -57,7 +63,12 @@ const Header = () => {
                 {links.map(({ name, path }, idx) => (
                   <Link
                     key={idx}
-                    className="text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all"
+                    className={cn(
+                      "text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all",
+                      {
+                        "text-yellow-200": pathname.endsWith(path),
+                      }
+                    )}
                     to={path}
                   >
                     {name}
@@ -66,7 +77,7 @@ const Header = () => {
               </nav>
             </div>
             <div className="flex items-center lg:ml-12">
-              <div className="header-mobileBar lg:hidden ml-12 pr-5">
+              <div className="header-mobileBar lg:hidden ml-12 ">
                 <span
                   className="cursor-pointer inline-block"
                   onClick={onToggle}
