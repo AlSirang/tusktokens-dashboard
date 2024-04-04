@@ -13,7 +13,7 @@ export const MainLayout = ({ children, className = "" }) => {
         </div>
         <main
           className={cn(
-            "max-w-screen-2xl px-5 mx-auto flex-grow h-full",
+            "max-w-screen-2xl px-5 lg:px-10 mx-auto flex-grow h-full",
             className
           )}
         >

@@ -100,55 +100,59 @@ export const VestedCard = () => {
   };
 
   return (
-    <section className="grid grid-cols-12 gap-5">
-      <Card className="col-span-12 md:col-span-6">
-        <div className="flex flex-col gap-5">
-          <div className="flex justify-between">
-            <h2 className="text-white text-lg md:text-xl font-semibold">
-              Vested TUSK (vTUSK)
-            </h2>
-            <p className="text-lg md:text-xl font-semibold">
-              {parseInt(balanceOf).toFixed(2)}
-            </p>
+    <>
+      <Card>
+        <div className="flex flex-wrap lg:flex-nowrap gap-10">
+          <div className=" basis-full lg:basis-1/2">
+            <div className="flex flex-col gap-5">
+              <div className="flex justify-between">
+                <h2 className="text-white text-lg lg:text-xl font-semibold">
+                  Vested TUSK (vTUSK)
+                </h2>
+                <p className="text-lg lg:text-xl font-semibold">
+                  {parseInt(balanceOf).toFixed(2)}
+                </p>
+              </div>
+              <div className="flex justify-between">
+                <h2 className="text-white text-lg lg:text-xl font-semibold">
+                  Vesting Schedules
+                </h2>
+                <p className="text-lg lg:text-xl font-semibold">
+                  {vestingSchedules}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between">
-            <h2 className="text-white text-lg md:text-xl font-semibold">
-              Vesting Schedules
-            </h2>
-            <p className="text-lg md:text-xl font-semibold">
-              {vestingSchedules}
-            </p>
-          </div>
-        </div>
-      </Card>
-      <Card className="col-span-12 md:col-span-6">
-        <div className="flex flex-col gap-5">
-          <div className="flex justify-between">
-            <h2 className="text-white text-lg md:text-xl font-semibold">
-              Claimable vTUSK
-            </h2>
-            <p className="text-lg md:text-xl font-semibold">
-              {parseInt(claimableBalance).toFixed(2)}
-            </p>
-          </div>
+          <div className="basis-full lg:basis-1/2">
+            <div className="flex flex-col gap-5">
+              <div className="flex justify-between">
+                <h2 className="text-white text-lg lg:text-xl font-semibold">
+                  Claimable vTUSK
+                </h2>
+                <p className="text-lg lg:text-xl font-semibold">
+                  {parseInt(claimableBalance).toFixed(2)}
+                </p>
+              </div>
 
-          <div>
-            <Button
-              className="max-w-44 py-2 rounded-full"
-              disabled={parseInt(claimableBalance) === 0}
-              onClick={handleClaim}
-            >
-              <span className="font-semibold normal-case">Claim vTUSK</span>
-            </Button>
+              <div>
+                <Button
+                  className="max-w-44 py-2 rounded-full"
+                  disabled={parseInt(claimableBalance) === 0}
+                  onClick={handleClaim}
+                >
+                  <span className="font-semibold normal-case">Claim vTUSK</span>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </Card>
 
       {vestingSchedules > 0 && (
-        <Card className="col-span-12">
+        <Card className="w-full">
           <VestingTable vestingCount={parseInt(vestingSchedules)} />
         </Card>
       )}
-    </section>
+    </>
   );
 };

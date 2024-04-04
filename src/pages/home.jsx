@@ -20,7 +20,7 @@ export default function Home() {
   };
   return (
     <MainLayout className="w-full md:flex items-center my-10">
-      <section className="flex flex-col lg:grid grid-cols-12 gap-10 h-full px-10">
+      <section className="flex flex-col lg:grid grid-cols-12 gap-10 h-full">
         <div className="col-span-12 lg:col-span-6">
           <div className="text-4xl md:text-5xl lg:text-6xl font-bold">
             <h2 className="text-white">Introducing</h2>

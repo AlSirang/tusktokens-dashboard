@@ -64,7 +64,7 @@ const Header = () => {
           </div>
 
           <div className="flex items-center">
-            <div className="hidden lg:block pr-5">
+            <div className="hidden lg:block -mr-7">
               <nav className="flex items-center gap-3">
                 {internalPaths.map(({ name, path }, idx) => (
                   <Link
