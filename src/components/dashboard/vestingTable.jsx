@@ -35,7 +35,7 @@ export const VestingTable = ({ vestingCount = 0 }) => {
         contracts.push({
           ...vestingContract,
           functionName: "getVestingScheduleByBeneficiaryAndIndex",
-          args: [address, i - i],
+          args: [address, i - 1],
         });
       }
 
