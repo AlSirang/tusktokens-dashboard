@@ -6,7 +6,7 @@ import { DisconnectButton } from "../disconnectButton";
 import { cn } from "@/src/lib/utils";
 
 export const MobileNavigation = React.forwardRef(
-  ({ links = [], onToggle = () => null }, ref) => {
+  ({ internalPaths, exnternalPaths, onToggle = () => null }, ref) => {
     const { pathname } = useLocation();
 
     return (
@@ -24,7 +24,7 @@ export const MobileNavigation = React.forwardRef(
         </div>
         <div className="offcanvas-menu px-5">
           <nav className="flex flex-col justify-end ">
-            {links.map(({ name, path }, idx) => (
+            {internalPaths.map(({ name, path }, idx) => (
               <Link
                 key={idx}
                 className={cn(
@@ -37,6 +37,20 @@ export const MobileNavigation = React.forwardRef(
               >
                 {name}
               </Link>
+            ))}
+            {exnternalPaths.map(({ name, path }, idx) => (
+              <a
+                href={path}
+                key={idx}
+                className={cn(
+                  "text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all",
+                  {
+                    "text-yellow-200": pathname.endsWith(path),
+                  }
+                )}
+              >
+                {name}
+              </a>
             ))}
           </nav>
 

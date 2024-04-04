@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAccount, useWalletClient } from "wagmi";
 import { useWeb3Modal } from "@web3modal/wagmi/react";
 
@@ -10,10 +10,10 @@ import { switchNetwork } from "@/src/lib/utils";
 
 export const ConnectButton = () => {
   const { open } = useWeb3Modal();
-  const { address, isConnected, chain } = useAccount();
+  const { address, isConnected } = useAccount();
   const { data: walletProvider } = useWalletClient();
 
-  const [{ isCorrectChain }, setState] = useState({
+  const [{ isCorrectChain }] = useState({
     isCorrectChain: true,
   });
 

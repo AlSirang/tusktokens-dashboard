@@ -9,7 +9,7 @@ const projectId = "3828bedc82f5ba0e923c413da3250b1a";
 const metadata = {
   name: "Tusk Tokens",
   description: "Tusk Tokens Dashboard",
-  url: "https://canary-lend.vercel.app",
+  url: "https://dashboard.tusktokens.com",
 };
 
 export const chains = [bsc];

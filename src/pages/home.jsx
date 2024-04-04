@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa6";
 import { Button } from "../components/button";
 import { MainLayout } from "../layouts/main.layout";
+import { DonutChart } from "../components/pieChart";
 
 import logo from "@/src/assets/TUSK-logo.png";
 
@@ -18,7 +19,7 @@ export default function Home() {
     navigate("/dashboard");
   };
   return (
-    <MainLayout className="flex items-center py-10 lg:py-0">
+    <MainLayout className="w-full md:flex items-center my-10">
       <section className="flex flex-col lg:grid grid-cols-12 gap-10 h-full px-10">
         <div className="col-span-12 lg:col-span-6">
           <div className="text-4xl md:text-5xl lg:text-6xl font-bold">
@@ -59,6 +60,9 @@ export default function Home() {
           <div className="flex justify-center">
             <img src={logo} alt="tusk tokens logo" />
           </div>
+        </div>
+        <div className="col-span-12">
+          <DonutChart />
         </div>
       </section>
     </MainLayout>

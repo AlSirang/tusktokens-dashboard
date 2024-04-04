@@ -5,7 +5,7 @@ import { MobileNavigation } from "./mobileNavigation";
 import { LogoImage } from "../logoImage";
 import { cn } from "@/src/lib/utils";
 
-const links = [
+const internalPaths = [
   {
     name: "Home",
     path: "/",
@@ -14,6 +14,8 @@ const links = [
     name: "dashboard",
     path: "/dashboard",
   },
+];
+const exnternalPaths = [
   {
     name: "About Us",
     path: "https://tusktokens.com/#about",
@@ -29,10 +31,9 @@ const links = [
 
   {
     name: "White paper",
-    path: "https://tusktokens.com/wp-content/uploads/2024/02/TUSK-Token-Whitepaper.pdf",
+    path: "WHITEPAPER.pdf",
   },
 ];
-
 const Header = () => {
   const { pathname } = useLocation();
   const sideMenuRef = useRef(null);
@@ -49,7 +50,12 @@ const Header = () => {
         <div className="overlay-color" />
       </div>
 
-      <MobileNavigation ref={sideMenuRef} links={links} onToggle={onToggle} />
+      <MobileNavigation
+        ref={sideMenuRef}
+        internalPaths={internalPaths}
+        exnternalPaths={exnternalPaths}
+        onToggle={onToggle}
+      />
 
       <header className="py-5 lg:py-14 max-w-screen-2xl mx-auto">
         <div className="flex items-center lg:justify-end justify-between px-5">
@@ -60,7 +66,7 @@ const Header = () => {
           <div className="flex items-center">
             <div className="hidden lg:block pr-5">
               <nav className="flex items-center gap-3">
-                {links.map(({ name, path }, idx) => (
+                {internalPaths.map(({ name, path }, idx) => (
                   <Link
                     key={idx}
                     className={cn(
@@ -73,6 +79,20 @@ const Header = () => {
                   >
                     {name}
                   </Link>
+                ))}
+                {exnternalPaths.map(({ name, path }, idx) => (
+                  <a
+                    href={path}
+                    key={idx}
+                    className={cn(
+                      "text-base font-semibold capitalize block py-2 text-slate-100 hover:text-yellow-200 transition-all",
+                      {
+                        "text-yellow-200": pathname.endsWith(path),
+                      }
+                    )}
+                  >
+                    {name}
+                  </a>
                 ))}
               </nav>
             </div>
