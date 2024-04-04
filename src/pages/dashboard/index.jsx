@@ -1,8 +1,8 @@
 import { MainLayout } from "@/src/layouts/main.layout";
-import { BalanceInfo } from "./components/balanceInfo";
-import { VestedCard } from "./components/vestedCard";
-import { StakeCard } from "./components/stakeCard";
-import { StakeRewardsCard } from "./components/stakeRewardsCard";
+import { BalanceInfo } from "@/src/components/dashboard/balanceInfo";
+import { VestedCard } from "@/src/components/dashboard/vestedCard";
+import { StakeCard } from "@/src/components/dashboard/stakeCard";
+import { StakeRewardsCard } from "@/src/components/dashboard/stakeRewardsCard";
 
 export default function Dashboard() {
   return (

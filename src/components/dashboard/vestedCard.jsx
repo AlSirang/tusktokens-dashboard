@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAccount, usePublicClient, useWriteContract } from "wagmi";
 import { formatEther } from "viem";
-import { Button } from "@/src/components/button";
-import { Card } from "@/src/components/card";
+import { Button } from "../button";
+import { Card } from "../card";
 import { VESTING_ABI, VESTING_ADDRESS } from "@/src/lib/constants";
 import { VestingTable } from "./vestingTable";
 import toast from "react-hot-toast";

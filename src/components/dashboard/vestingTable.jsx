@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { formatEther } from "viem";
 import { useAccount, usePublicClient } from "wagmi";
 import { FaPlus } from "react-icons/fa6";
-import { Button } from "@/src/components/button";
+import { Button } from "../button";
 import { VESTING_ABI, VESTING_ADDRESS } from "@/src/lib/constants";
 import { getMonthsAndDays, timeConverter } from "@/src/lib/dateTimeHelper";
 import { getPlural } from "@/src/lib/utils";

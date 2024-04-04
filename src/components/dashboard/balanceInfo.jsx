@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useAccount, usePublicClient } from "wagmi";
-import { Card } from "@/src/components/card";
+import { Card } from "../card";
 import { ERC20_ABI, ERC20_ADDRESS } from "@/src/lib/constants";
 import { formatEther } from "viem";
 
