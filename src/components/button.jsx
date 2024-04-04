@@ -7,11 +7,11 @@ export const Button = forwardRef(
       <button
         ref={ref}
         className={cn(
-          "inline-flex justify-center items-center py-3 px-4 rounded-md w-full font-medium uppercase transition-all disabled:text-foreground/50 disabled:bg-primary/30 disabled:hover:opacity-100 hover:opacity-80",
+          "inline-flex justify-center items-center py-3 px-4 rounded-md w-full font-medium uppercase transition-all disabled:text-foreground/50 disabled:bg-primary/30 disabled:opacity-80 hover:opacity-80",
           {
             "text-dark-100 bg-yellow-200 disabled:bg-yellow-200/60":
               variant === "primary",
-            "text-foreground bg-transparent border border-yellow-200 disabled:bg-transparent disabled:border-foreground/50":
+            "text-foreground bg-transparent border border-yellow-200 disabled:bg-transparent disabled:border-yellow-200/50":
               variant === "secondary",
           },
           className

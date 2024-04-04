@@ -8,7 +8,7 @@ export const Card = ({ className = "", children }) => {
         className
       )}
     >
-      <div className="py-10 px-5">{children}</div>
+      <div className="py-10 px-5 h-full">{children}</div>
     </section>
   );
 };

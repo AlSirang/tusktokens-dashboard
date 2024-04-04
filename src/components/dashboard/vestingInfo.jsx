@@ -11,7 +11,7 @@ const vestingContract = {
   abi: VESTING_ABI,
   address: VESTING_ADDRESS,
 };
-export const VestedCard = () => {
+export const VestingInfo = () => {
   const publicClient = usePublicClient();
   const { writeContractAsync } = useWriteContract();
 
