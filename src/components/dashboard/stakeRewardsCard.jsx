@@ -18,12 +18,16 @@ export const StakeRewardsCard = () => {
             <h2 className="text-white text-lg md:text-xl font-semibold">
               Due after
             </h2>
-            <p className="text-lg md:text-xl font-semibold">{dueAfter}</p>
+            <p className="text-lg md:text-xl font-semibold">
+              {new Date(dueAfter * 1000).toLocaleString()}
+            </p>
           </div>
         </div>
         <div>
           <Button
-            disabled={parseInt(rewards) === 0}
+            disabled={
+              (parseInt(rewards) === 0) | (dueAfter * 1000 > Date.now())
+            }
             className="max-w-44  py-1.5 px-4 h-auto text-lg font-semibold rounded-full"
           >
             <span className="font-semibold normal-case">Claim TUSK</span>

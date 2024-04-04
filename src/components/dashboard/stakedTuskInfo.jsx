@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { usePublicClient, useWriteContract } from "wagmi";
+import { useAccount, usePublicClient, useWriteContract } from "wagmi";
 import { useStakeContext } from "@/src/context/stakeContext";
 import { useTuskBalanceContext } from "@/src/context/tuskBalanceContext";
 import { Button } from "../button";
@@ -7,6 +7,7 @@ import { STAKING_ABI, STAKING_ADDRESS } from "@/src/lib/constants";
 
 export const StakedTuskInfo = () => {
   const publicClient = usePublicClient();
+  const { address } = useAccount();
   const { writeContractAsync } = useWriteContract();
   const { getTuskBalance } = useTuskBalanceContext();
   const { balanceOf, getStakeInfo } = useStakeContext();
@@ -24,8 +25,8 @@ export const StakedTuskInfo = () => {
           hash: txId,
           confirmations: 2,
         });
-        getTuskBalance();
-        getStakeInfo();
+        getStakeInfo(address);
+        getTuskBalance(address);
         resolve(null);
       } catch (error) {
         reject(error?.shortMessage || error.message || "Something went wrong");

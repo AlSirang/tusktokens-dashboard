@@ -60,8 +60,8 @@ export const StakeCard = () => {
           hash: txId,
           confirmations: 2,
         });
-        getStakeInfo();
-        getTuskBalance();
+        getStakeInfo(address);
+        getTuskBalance(address);
         resolve(null);
       } catch (error) {
         reject(error?.shortMessage || error.message || "Something went wrong");
@@ -96,6 +96,8 @@ export const StakeCard = () => {
               TUSK to Stake
             </label>
             <input
+              autoComplete="off"
+              type="number"
               name="amount"
               placeholder="Enter amount"
               className="text-base lg:text-lg basis-full py-1.5 px-2 rounded-md text-black border-2 border-transparent focus:border-yellow-200 outline-0 focus:outline-0"
