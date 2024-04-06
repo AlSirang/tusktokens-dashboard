@@ -15,13 +15,15 @@ import { parseEther } from "viem";
 
 export const StakeCard = () => {
   const publicClient = usePublicClient();
-  const { address } = useAccount();
+  const { address, isConnected } = useAccount();
   const { writeContractAsync } = useWriteContract();
   const { getTuskBalance } = useTuskBalanceContext();
   const { getStakeInfo } = useStakeContext();
 
   const handleStake = (event) => {
     event.preventDefault();
+
+    if (!isConnected) return toast.error("Please connect wallet");
 
     const form = new FormData(event.target);
     const amount = form.get("amount");
@@ -107,7 +109,7 @@ export const StakeCard = () => {
           <div className="flex gap-5">
             <Button
               type="submit"
-              className="basis-1/2  py-1.5 px-4 h-auto text-lg font-semibold rounded-full max-w-52"
+              className="md:basis-1/2  py-1.5 px-4 h-auto text-lg font-semibold rounded-full md:max-w-52"
             >
               <span className="font-semibold normal-case">Stake</span>
             </Button>

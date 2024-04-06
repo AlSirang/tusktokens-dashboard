@@ -3,9 +3,15 @@ import { useAccount, usePublicClient, useWriteContract } from "wagmi";
 import { formatEther } from "viem";
 import { Button } from "../button";
 import { Card } from "../card";
-import { VESTING_ABI, VESTING_ADDRESS } from "@/src/lib/constants";
+import {
+  VESTING_ABI,
+  VESTING_ADDRESS,
+  VESTING_ASSET_OPTIONS,
+} from "@/src/lib/constants";
 import { VestingTable } from "./vestingTable";
 import toast from "react-hot-toast";
+import { AssetButton } from "../assetButton";
+import { useWatchAsset } from "@/src/hooks/useWatchAsset";
 
 const vestingContract = {
   abi: VESTING_ABI,
@@ -14,6 +20,7 @@ const vestingContract = {
 export const VestingInfo = () => {
   const publicClient = usePublicClient();
   const { writeContractAsync } = useWriteContract();
+  const { handleWatchAsset } = useWatchAsset();
 
   const { address } = useAccount();
 
@@ -107,10 +114,10 @@ export const VestingInfo = () => {
             <div className="flex flex-col gap-5">
               <div className="flex justify-between">
                 <h2 className="text-white text-lg lg:text-xl font-semibold">
-                  Vested TUSK (vTUSK)
+                  Vested TUSK
                 </h2>
                 <p className="text-lg lg:text-xl font-semibold">
-                  {parseInt(balanceOf).toFixed(2)}
+                  {parseInt(balanceOf).toFixed(2)} vTUSK
                 </p>
               </div>
               <div className="flex justify-between">
@@ -136,7 +143,7 @@ export const VestingInfo = () => {
 
               <div>
                 <Button
-                  className="max-w-44 py-2 rounded-full"
+                  className="md:max-w-44 py-2 rounded-full"
                   disabled={parseInt(claimableBalance) === 0}
                   onClick={handleClaim}
                 >
@@ -145,6 +152,15 @@ export const VestingInfo = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex justify-end relative -bottom-5">
+          <AssetButton
+            onClick={() => {
+              handleWatchAsset(VESTING_ASSET_OPTIONS);
+            }}
+          >
+            Add vTUSK To Wallet
+          </AssetButton>
         </div>
       </Card>
 

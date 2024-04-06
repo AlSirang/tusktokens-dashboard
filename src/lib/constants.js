@@ -14,3 +14,20 @@ export {
   STAKING_ADDRESS,
   VESTING_ADDRESS,
 };
+
+export const VESTING_ASSET_OPTIONS = {
+  address: VESTING_ADDRESS,
+  symbol: "vTUSK",
+  decimals: 18,
+};
+
+export const TUSK_ASSET_OPTIONS = {
+  address: ERC20_ADDRESS,
+  symbol: "TUSK",
+  decimals: 18,
+};
+export const STAKING_ASSET_OPTIONS = {
+  address: STAKING_ADDRESS,
+  symbol: "sTUSK",
+  decimals: 18,
+};
