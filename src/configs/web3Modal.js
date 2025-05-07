@@ -1,5 +1,7 @@
 import { createWeb3Modal } from "@web3modal/wagmi/react";
-import { bsc } from "viem/chains";
+// import { bsc } from "viem/chains";
+import { bsc } from "wagmi/chains";
+
 import { http, createConfig } from "wagmi";
 import { walletConnect, injected } from "wagmi/connectors";
 //  Get projectId
